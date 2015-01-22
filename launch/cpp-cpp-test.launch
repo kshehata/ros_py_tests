@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="pub" pkg="ros_py_tests" type="pub" />
+  <node name="sub1" pkg="ros_py_tests" type="sub" />
+  <node name="sub2" pkg="ros_py_tests" type="sub" />
+  <node name="sub3" pkg="ros_py_tests" type="sub" />
+  <node name="sub4" pkg="ros_py_tests" type="sub" />
+  <node name="sub5" pkg="ros_py_tests" type="sub" />
+</launch>
