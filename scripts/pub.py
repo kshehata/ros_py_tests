@@ -1,19 +1,24 @@
 #!/usr/bin/env python
+# Simple test harness to publish a header at 100 Hz
+# populates time stamps and sequence numbers so clients can check for
+# time sync and lost messages
 
 import rospy
-from std_msgs.msg import String
+from std_msgs.msg import Header
 
-def talker():
-    pub = rospy.Publisher('chatter', String, queue_size=10)
-    rospy.init_node('talker', anonymous=True)
+def sender():
+    pub = rospy.Publisher('test', Header, queue_size=10)
+    rospy.init_node('sender', anonymous=True)
     rate = rospy.Rate(100)
+    msg = Header()
     while not rospy.is_shutdown():
-        hello_str = "hello world %s" % rospy.get_time()
-        pub.publish(hello_str)
+        msg.stamp = rospy.Time.now()
+        msg.frame_id = "hello world %s" % msg.stamp
+        pub.publish(msg)
         rate.sleep()
 
 if __name__ == '__main__':
     try:
-        talker()
+        sender()
     except rospy.ROSInterruptException:
         pass
