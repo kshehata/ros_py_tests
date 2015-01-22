@@ -4,6 +4,7 @@ project(ros_py_tests)
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
   rospy
+  roscpp
   std_msgs
   message_generation
 )
@@ -11,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
   CATKIN_DEPENDS
   rospy
+  roscpp
   std_msgs
   message_runtime
 )
@@ -25,3 +27,6 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
+
+add_executable(pub src/pub.cpp)
+target_link_libraries(pub ${catkin_LIBRARIES})

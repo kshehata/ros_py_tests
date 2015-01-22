@@ -13,7 +13,7 @@ def sender():
     msg = Header()
     while not rospy.is_shutdown():
         msg.stamp = rospy.Time.now()
-        msg.frame_id = "hello world %s" % msg.stamp
+        msg.frame_id = "python hello world %s" % msg.stamp
         pub.publish(msg)
         rate.sleep()
 
