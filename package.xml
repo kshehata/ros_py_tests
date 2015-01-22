@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>py_tests</name>
+  <name>ros_py_tests</name>
   <version>0.0.0</version>
   <description>Python tests for performance.</description>
 
